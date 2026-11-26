@@ -3,6 +3,7 @@
 ## Notes: Rogue energy, combo points, poisons, cooldowns, and combat cues for WoW Forever.
 ## Author: RogueHUD contributors
 ## Version: 0.1.0
+## X-Curse-Project-ID: 1832998
 ## X-Wago-ID: 5NRglx63
 ## SavedVariables: RogueHUDDB
 ## SavedVariablesPerCharacter: RogueHUDCharacterDB
