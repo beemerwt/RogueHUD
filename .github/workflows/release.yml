@@ -1,0 +1,39 @@
+name: Release addon
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate release
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$GITHUB_REF_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          version="${GITHUB_REF_NAME#v}"
+          toc_version="$(sed -n 's/^## Version: //p' RogueHUD.toc)"
+          [[ "$toc_version" == "$version" ]]
+          [[ "$(sed -n 's/^## Interface: //p' RogueHUD.toc)" == '16001' ]]
+          while IFS= read -r file; do
+            [[ -f "$file" ]] || { echo "Missing addon file: $file" >&2; exit 1; }
+          done < <(sed -n '/^[^#[:space:]]/p' RogueHUD.toc)
+          test -f LICENSE
+          test -f Media/Fonts/LICENSE-Inter-OFL.txt
+
+      - name: Package and publish
+        uses: BigWigsMods/packager@v2
+        env:
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}

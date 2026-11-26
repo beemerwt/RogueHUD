@@ -1,0 +1,22 @@
+## Interface: 16001
+## Title: RogueHUD
+## Notes: Rogue energy, combo points, poisons, cooldowns, and combat cues for WoW Forever.
+## Author: RogueHUD contributors
+## Version: 0.1.0
+## SavedVariables: RogueHUDDB
+## SavedVariablesPerCharacter: RogueHUDCharacterDB
+## OptionalDeps: EllesmereUI, ForeverAuras, Details, LibSharedMedia-3.0
+## IconTexture: Interface\Icons\Ability_Rogue_Eviscerate
+## Category: Class
+
+Core.lua
+Data.lua
+Style.lua
+HUD.lua
+Castbar.lua
+Poisons.lua
+Cooldowns.lua
+Extras.lua
+Options.lua
+Minimap.lua
+GamePanel.lua

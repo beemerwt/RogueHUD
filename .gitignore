@@ -1,0 +1,5 @@
+.release/
+.env
+.agents/
+.aws/
+.codex/
