@@ -8,7 +8,7 @@ Download the latest release zip and extract it into `Interface/AddOns` so the ad
 
 ## Releases
 
-Releases are built from `vX.Y.Z` Git tags. The tag must match `## Version` in `RogueHUD.toc`. GitHub Actions packages the addon and publishes it to GitHub Releases; once the CurseForge and Wago project IDs and API tokens are configured, the same workflow uploads tagged versions there too.
+Releases are built from `vX.Y.Z` Git tags. The tag must match `## Version` in `RogueHUD.toc`. GitHub Actions packages the addon and publishes it to GitHub Releases. With the `CF_API_KEY` repository secret, the packager also uploads tagged versions to CurseForge. Wago imports GitHub releases through its release webhook.
 
 ## License
 
